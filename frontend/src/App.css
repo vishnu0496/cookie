@@ -1,34 +1,104 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* ── Sundays — Premium Cookie Brand ─────────────────────────────────────────── */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap');
+
+/* Reset & base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+html {
+  scroll-behavior: smooth;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  background-color: #0A140E;
+  color: #FDFBF7;
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-.App-link {
-    color: #61dafb;
+/* Typography helpers */
+.sundays-display {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.sundays-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+
+.sundays-logo {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0A140E;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.35);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.6);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: #FDFBF7;
+}
+
+/* Smooth image loading */
+img {
+  display: block;
+  max-width: 100%;
+  transition: opacity 0.4s ease;
+}
+
+/* Gold gradient text utility */
+.gold-text {
+  background: linear-gradient(135deg, #C9A84C 0%, #DCC275 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* Focus outlines */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 3px;
+}
+
+/* Prevent layout shift from scrollbar */
+html {
+  scrollbar-gutter: stable;
 }
