@@ -11,7 +11,16 @@ const defaultApiUrl = isLocalhost ? 'http://127.0.0.1:8000/api' : '/api';
 const API_URL = shouldUseLocalApi ? 'http://127.0.0.1:8000/api' : (rawApiUrl ? (rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`) : defaultApiUrl);
 
 async function parseJsonResponse(response) {
-  const text = await response.text();
+  let text = '';
+
+  try {
+    text = await response.clone().text();
+  } catch {
+    if (response.bodyUsed) {
+      throw new Error(response.ok ? 'The server response could not be read. Please try again.' : `Request failed with status ${response.status}`);
+    }
+    text = await response.text();
+  }
 
   if (!text) return {};
 
