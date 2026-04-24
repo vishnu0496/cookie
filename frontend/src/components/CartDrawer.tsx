@@ -152,29 +152,29 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                             </span>
 
                             <div className="flex justify-between items-center">
-                              <span className="text-tan text-[10px] tracking-[0.3em] font-bold uppercase">Box #{index + 1}</span>
-                              <button onClick={() => onUpdateQuantity(index, -1)} className="text-white/20 hover:text-red-400 transition-colors text-[10px] uppercase tracking-widest font-bold">Remove</button>
+                              <span className="text-tan text-[9px] tracking-[0.4em] font-bold uppercase">Box #{index + 1}</span>
+                              <button onClick={() => onUpdateQuantity(index, -1)} className="text-white/10 hover:text-red-400 transition-colors text-[9px] uppercase tracking-widest font-bold">Remove</button>
                             </div>
 
                             <div className="flex justify-between items-baseline">
-                              <h3 className="text-xl font-serif text-white">{item.packName}</h3>
-                              <span className="text-white font-serif">₹{item.price}</span>
+                              <h3 className="text-lg font-serif text-white tracking-wide">{item.packName}</h3>
+                              <span className="text-white font-serif text-lg">₹{item.price}</span>
                             </div>
 
-                            <div className="space-y-3 pt-4 border-t border-gold/5">
+                            <div className="space-y-2.5 pt-4 border-t border-gold/5">
                               {Object.entries(item.selections).filter(([_, count]) => count > 0).map(([name, count]) => (
                                 <div key={name} className="flex justify-between items-center text-sm">
                                   <div className="flex items-center gap-3">
                                     <div 
-                                      className="w-2 h-2 rounded-full" 
+                                      className="w-1.5 h-1.5 rounded-full" 
                                       style={{ 
                                         backgroundColor: name === "Chocolate Chip" ? "#C7A44C" : 
                                                         name === "Nutella Stuffed" ? "#4B3621" : "#FDFD96" 
                                       }} 
                                     />
-                                    <span className="text-white/60 italic font-serif">{name}</span>
+                                    <span className="text-white/40 italic font-serif text-base">{name}</span>
                                   </div>
-                                  <span className="text-tan font-bold">x{count}</span>
+                                  <span className="text-tan/80 font-bold text-xs tracking-widest">x{count}</span>
                                 </div>
                               ))}
                               {item.packName === "5+1 Free Pack" && (

@@ -112,10 +112,10 @@ export function PackSection({ onAddToCart }: { onAddToCart: (pack: Pack, selecti
 
                 <div className="space-y-6 flex-grow">
                   <div className="flex justify-between items-end border-b border-gold/10 pb-5 mb-5">
-                    <p className="text-tan text-[11px] tracking-[0.3em] uppercase font-bold">
+                    <p className="text-tan text-[9px] tracking-[0.4em] uppercase font-bold">
                       CHOOSE {pack.maxCookies} COOKIES
                     </p>
-                    <p className="text-cream/30 text-[11px] tracking-widest uppercase">
+                    <p className="text-cream/30 text-[9px] tracking-widest uppercase">
                       Selected: <span className="text-tan font-bold">{getPackTotal(pack.id)} / {pack.maxCookies}</span>
                     </p>
                   </div>
@@ -123,10 +123,10 @@ export function PackSection({ onAddToCart }: { onAddToCart: (pack: Pack, selecti
                   {COOKIES.map((cookie) => (
                     <div key={cookie.name} className="flex items-center justify-between py-2 group/row">
                       <div className="max-w-[65%]">
-                        <p className="text-cream font-medium text-xl mb-1 group-hover/row:text-tan transition-colors duration-300">
+                        <p className="text-cream font-medium text-lg mb-1 group-hover/row:text-tan transition-colors duration-300 tracking-wide">
                           {cookie.name}
                         </p>
-                        <p className="font-serif-display text-cream-dim/40 text-sm italic">
+                        <p className="font-serif-display text-cream-dim/30 text-xs italic">
                           {cookie.description}
                         </p>
                       </div>
