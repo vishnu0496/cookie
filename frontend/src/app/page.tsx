@@ -26,8 +26,14 @@ export default function Home() {
   useEffect(() => {
     const handleOpenCart = () => setIsCartOpen(true);
     window.addEventListener('open-cart', handleOpenCart);
+    
+    // Dispatch initial and updated cart count
+    window.dispatchEvent(new CustomEvent('cart-updated', { 
+      detail: { count: cart.length } 
+    }));
+
     return () => window.removeEventListener('open-cart', handleOpenCart);
-  }, []);
+  }, [cart]);
 
   const handleAddToCart = (pack: any, selections: Record<string, number>) => {
     const newItem: OrderItem = {

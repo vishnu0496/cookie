@@ -2,6 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export function Header() {
+  const [cartCount, setCartCount] = React.useState(0);
+
+  React.useEffect(() => {
+    // Listen for cart updates
+    const handleUpdate = (e: any) => {
+      setCartCount(e.detail?.count || 0);
+    };
+    window.addEventListener('cart-updated', handleUpdate);
+    
+    // Check initial state if possible or just wait for first update
+    return () => window.removeEventListener('cart-updated', handleUpdate);
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Ticker Bar */}
@@ -60,7 +73,9 @@ export function Header() {
               className="relative hover:text-gold transition-colors flex items-center gap-2"
             >
               Cart
-              <span className="w-1.5 h-1.5 bg-tan rounded-full shadow-[0_0_8px_rgba(194,163,93,0.8)]"></span>
+              {cartCount > 0 && (
+                <span className="w-1.5 h-1.5 bg-tan rounded-full shadow-[0_0_8px_rgba(194,163,93,0.8)]"></span>
+              )}
             </button>
           </div>
         </div>
