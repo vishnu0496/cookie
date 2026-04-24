@@ -55,9 +55,6 @@ export function Header() {
                 </motion.span>
               ))}
             </div>
-            
-            {/* Gap */}
-            <span className="mx-1.5" />
 
             {/* DAYS */}
             <div className="flex text-gold">
