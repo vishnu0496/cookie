@@ -32,54 +32,15 @@ export function Header() {
 
       <nav className="h-16 flex items-center border-b border-gold/5 bg-deep-forest sticky top-10 z-[100]">
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: { 
-                transition: { 
-                  staggerChildren: 0.05
-                } 
-              }
-            }}
-            className="flex items-center text-xl md:text-2xl font-serif font-bold tracking-widest uppercase overflow-hidden"
+          <motion.h1 
+            initial={{ letterSpacing: "0.1em", opacity: 0 }}
+            animate={{ letterSpacing: "0.4em", opacity: 1 }}
+            transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-xl md:text-2xl font-serif font-bold flex items-center uppercase"
           >
-            {/* SUN */}
-            <div className="flex text-white">
-              {["S", "U", "N"].map((letter, i) => (
-                <div key={`sun-${i}`} className="overflow-hidden">
-                  <motion.span
-                    variants={{
-                      hidden: { y: "100%" },
-                      visible: { y: 0 }
-                    }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                </div>
-              ))}
-            </div>
-
-            {/* DAYS */}
-            <div className="flex text-gold">
-              {["D", "A", "Y", "S"].map((letter, i) => (
-                <div key={`days-${i}`} className="overflow-hidden">
-                  <motion.span
-                    variants={{
-                      hidden: { y: "100%" },
-                      visible: { y: 0 }
-                    }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+            <span className="text-white">SUN</span>
+            <span className="text-gold">DAYS</span>
+          </motion.h1>
 
           <div className="hidden md:flex gap-10 items-center text-[12px] tracking-widest font-bold text-cream uppercase">
             <a href="#menu" className="hover:text-gold transition-colors">Menu</a>
