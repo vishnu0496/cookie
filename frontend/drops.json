@@ -1,0 +1,22 @@
+[
+  {
+    "id": "DRP01",
+    "dropNumber": "01",
+    "title": "Drop 01",
+    "status": "fulfilled",
+    "slotLimit": 50,
+    "startsAt": "2026-03-29T07:00:00.000Z",
+    "endsAt": "2026-04-04T23:59:59.000Z",
+    "notes": "First drop. Sold out ahead of target."
+  },
+  {
+    "id": "DRP02",
+    "dropNumber": "02",
+    "title": "Drop 02",
+    "status": "live",
+    "slotLimit": 50,
+    "startsAt": "2026-04-06T07:00:00.000Z",
+    "endsAt": null,
+    "notes": ""
+  }
+]
