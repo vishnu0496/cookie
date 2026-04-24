@@ -36,41 +36,55 @@ export function Header() {
             initial="hidden"
             animate="visible"
             variants={{
-              visible: { transition: { staggerChildren: 0.1 } }
+              visible: { 
+                transition: { 
+                  staggerChildren: 0.12,
+                  delayChildren: 0.2
+                } 
+              }
             }}
-            className="flex items-center text-xl md:text-2xl font-serif font-bold tracking-[0.2em] uppercase"
+            className="flex items-center text-xl md:text-2xl font-serif font-bold uppercase"
           >
-            {/* SUN */}
-            <div className="flex text-white">
-              {["S", "U", "N"].map((letter, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
+            <motion.div 
+              variants={{
+                hidden: { letterSpacing: "0.1em" },
+                visible: { letterSpacing: "0.25em" }
+              }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              className="flex items-center"
+            >
+              {/* SUN */}
+              <div className="flex text-white">
+                {["S", "U", "N"].map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, filter: "blur(4px)", scale: 0.95 },
+                      visible: { opacity: 1, filter: "blur(0px)", scale: 1 }
+                    }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </div>
 
-            {/* DAYS */}
-            <div className="flex text-gold">
-              {["D", "A", "Y", "S"].map((letter, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
+              {/* DAYS */}
+              <div className="flex text-gold">
+                {["D", "A", "Y", "S"].map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, filter: "blur(4px)", scale: 0.95 },
+                      visible: { opacity: 1, filter: "blur(0px)", scale: 1 }
+                    }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           <div className="hidden md:flex gap-10 items-center text-[12px] tracking-widest font-bold text-cream uppercase">
