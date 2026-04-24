@@ -81,6 +81,8 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
       return;
     }
 
+    const deliveryCharge = subtotal >= 899 ? 0 : 50;
+    
     setIsProcessing(true);
     try {
       const apiUrl = `${window.location.origin}/api/order`;
@@ -110,8 +112,8 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
             selections: item.selections
           })),
           subtotal,
-          delivery,
-          total
+          delivery: deliveryCharge,
+          total: subtotal + deliveryCharge
         })
       });
 
