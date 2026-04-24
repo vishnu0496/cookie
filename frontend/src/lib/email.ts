@@ -38,7 +38,7 @@ function addressLines(c: OrderEntry["customer"]): string[] {
 }
 
 function dropLabel(orderNumber: string): string {
-  return "Boutique Bakery";
+  return "Handcrafted";
 }
 
 // ── Customer Confirmation Email ───────────────────────────────────────────────
@@ -358,7 +358,7 @@ Received: ${receivedAt}`;
         <!-- Footer -->
         <tr>
           <td style="background-color:#FAFAF8; padding:14px 24px; border-top:1px solid #E8E0D0; text-align:center;">
-            <p style="margin:0; font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:2px;">Sundays &middot; Boutique Operations</p>
+            <p style="margin:0; font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:2px;">Sundays &middot; Operations</p>
           </td>
         </tr>
 

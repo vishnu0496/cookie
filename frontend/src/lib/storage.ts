@@ -76,7 +76,7 @@ export async function processOrder(
       return { success: false, error: "sold_out" };
     }
 
-    const orderNumber = `DRP01-${String(orders.length + 1).padStart(3, '0')}`;
+    const orderNumber = `SUN-${String(orders.length + 1).padStart(4, '0')}`;
 
     const newEntry: OrderEntry = {
       orderNumber,
