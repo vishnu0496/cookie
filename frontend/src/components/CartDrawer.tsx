@@ -81,16 +81,15 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+            className="fixed inset-0 bg-black/80 z-[100]"
           />
           
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed right-0 top-0 h-full w-full md:w-[480px] bg-[#050D0A] border-l border-gold/10 z-[101] shadow-2xl flex flex-col will-change-transform"
-            style={{ backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed right-0 top-0 h-full w-full md:w-[480px] bg-[#050D0A] border-l border-gold/10 z-[101] shadow-2xl flex flex-col"
           >
             {/* Header */}
             <div className="p-8 border-b border-gold/10 flex justify-between items-center">
@@ -109,15 +108,9 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
 
             {/* Stages Container */}
             <div className="flex-grow overflow-y-auto">
-              <AnimatePresence mode="wait">
+              <div className="p-8 space-y-10">
                 {stage === 'cart' ? (
-                  <motion.div 
-                    key="cart"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    className="p-8 space-y-10"
-                  >
+                  <div className="space-y-10">
                     {/* Rewards Tracker */}
                     <div className="space-y-5 pb-8 border-b border-gold/5">
                       <div className="flex justify-between text-[11px] tracking-widest uppercase font-bold">
@@ -126,7 +119,7 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                         </span>
                       </div>
                       <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                        <div className={`h-full transition-all duration-1000 ${subtotal >= deliveryGoal ? "bg-green-500" : "bg-gold"}`} style={{ width: `${deliveryProgress}%` }} />
+                        <div className={`h-full ${subtotal >= deliveryGoal ? "bg-green-500" : "bg-gold"}`} style={{ width: `${deliveryProgress}%` }} />
                       </div>
                       
                       <div className="flex justify-between text-[11px] tracking-widest uppercase font-bold">
@@ -135,7 +128,7 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                         </span>
                       </div>
                       <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                        <div className={`h-full transition-all duration-1000 ${subtotal >= toteGoal ? "bg-green-500" : "bg-tan"}`} style={{ width: `${toteProgress}%` }} />
+                        <div className={`h-full ${subtotal >= toteGoal ? "bg-green-500" : "bg-tan"}`} style={{ width: `${toteProgress}%` }} />
                       </div>
                     </div>
 
@@ -146,7 +139,6 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                       ) : (
                         cart.map((item, index) => (
                           <div key={index} className="bg-white/[0.03] border border-gold/5 rounded-2xl p-6 space-y-4 relative overflow-hidden group">
-                            {/* Subtle Box Number in background */}
                             <span className="absolute -right-2 -top-4 text-7xl font-serif text-white/[0.02] italic select-none">
                               {index + 1}
                             </span>
@@ -191,15 +183,9 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                         ))
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 ) : (
-                  <motion.div 
-                    key="checkout"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    className="p-8 space-y-10"
-                  >
+                  <div className="space-y-10">
                     <button onClick={() => setStage('cart')} className="text-gold-muted hover:text-white transition-colors text-[11px] tracking-widest uppercase font-bold flex items-center gap-2 mb-8">
                       ← Back to Selection
                     </button>
@@ -226,9 +212,9 @@ export function CartDrawer({ isOpen, onClose, cart, onUpdateQuantity }: CartDraw
                         <input type="text" placeholder="Any special requests?" className="input-premium h-14 text-base" value={formData.note} onChange={(e) => setFormData({...formData, note: e.target.value})} />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
 
             {/* Footer */}
